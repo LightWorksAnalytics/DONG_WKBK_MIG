@@ -31,36 +31,58 @@ cursor = cnxn.cursor()
 root = Tk()
 root.withdraw()
 
-root.title = "ICS DONG WKBK EXTRACT"
-root.geometry("330x470")
-root.mainloop()
-
 glb_Need_ID = None
 glb_offset = None
 glb_path = None
 
 def main():
     current_directory = filedialog.askdirectory()
-    #list_files(current_directory)
+    list_files(current_directory)
 
     
 def list_files(dir):                                                                                                  
     #r = []
-    file_count = len(files)
+    #file_count = len(files)
     for root, dirs, files in os.walk(dir):
         for name in files:
             global glb_path
             glb_path = (os.path.join(root, name))
             #print (name)
-            if '~$'not in name:
-            #if name == 'TEST_003_OPEN.xlsm':
+            #if '~$'not in name:
+            if name == 'TEST_003_OPEN.xlsm':
                 worksheet_getNEEDBASE()
-                worksheet_getAVAILRISk()
-
+                #worksheet_getAVAILRISk()
+                worksheet_getSolBase()
+           
+def worksheet_getSolBase():
+    #try:
+        df = pd.read_excel(glb_path, sheetname = 'Solution Base')    
+       # print (df['Unnamed: 6'])
+        #print (df.iloc[23,6])
+        #print (df.iloc[6,0])        
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
+        x=0
+        i=1            
+        while x<20:
+            #print(i, df.iloc[34,18+x])
+            insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
+            insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
+            insertvalue(df.iloc[6,0],glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
+            x=x+2
+            i=i+1
+        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
+        insertvalue(df.iloc[6,0]glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
+    #except: 
+     #  print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 
 def worksheet_getNEEDBASE():
     #path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Test Workbooks\\TEST_002.xlsm'
-    print(glb_path)
+    #print(glb_path)
     try:
         df = pd.read_excel(glb_path, sheetname = 'Need Base')
         global Need_ID
