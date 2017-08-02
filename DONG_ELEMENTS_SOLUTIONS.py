@@ -31,19 +31,39 @@ cursor = cnxn.cursor()
 root = Tk()
 root.withdraw()
 
+glb_Need_ID = None
+glb_offset = None
+glb_path = None
+
+def main():
+    current_directory = filedialog.askdirectory()
+    list_files(current_directory)
+    
+    
+def list_files(dir):                                                                                                  
+    #r = []
+    for root, dirs, files in os.walk(dir):
+        for name in files:
+            global glb_path
+            glb_path = (os.path.join(root, name))
+            #print (name)
+            if '~$'not in name:
+            #if name == 'TEST_003_OPEN.xlsm':
+                worksheet_getNEEDBASE()
+                worksheet_getAVAILRISk()
 
 
-def isNaN(num):
-    return num != num
-
-def worksheet_getNEEDBASE(path):
+def worksheet_getNEEDBASE():
     #path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Test Workbooks\\TEST_002.xlsm'
+    print(glb_path)
     try:
-        df = pd.read_excel(path, sheetname = 'Need Base')
+        df = pd.read_excel(glb_path, sheetname = 'Need Base')
+        global Need_ID
         Need_ID = df.iloc[7,3]
-       # print (Need_ID)
+        #print (Need_ID)
         #print (df.columns)
         #print (df['Unnamed: 3'])
+        global offset
         offset = 0
         for index, row in df.iterrows():
            # print (index, row[3])
@@ -63,9 +83,9 @@ def worksheet_getNEEDBASE(path):
                         offset = offset + 1
                 except:
                       None      
-        #print(offset)
-        #worksheet_getAVAILRISk(path, offset, Need_ID)
-        worksheet_getTECHAVAIL(path, offset, Need_ID)
+#        #print(offset)
+#        #worksheet_getAVAILRISk(path, offset, Need_ID)
+#        worksheet_getTECHAVAIL(path, offset, Need_ID)
  
     except: 
        print ('WORKBOOK', ' :: ', path, ' :: FAILURE')
@@ -143,56 +163,60 @@ def worksheet_getTECHAVAIL(path, offset, Need_ID):
                     #print ( df.iloc[index + intloop + 87,6])
                     intloop = intloop + 1
         
-def worksheet_getAVAILRISk(path, offset, Need_ID, Solution_ID):
-        df = pd.read_excel(path, sheetname = 'Availability Risk')
-        #print (df['Unnamed: 7'])
-       # for index, row in df.iterrows():
-       #     #print (row[6])
-       #     if row[6] == 'Power' or row[6] == 'El':  
-       #         insertvalue(Need_ID, 'POWER', df.iloc[index +1,6])
-       #         insertvalue(Need_ID, 'HEAT', df.iloc[index +1,8])
-       #         #print('power =', df.iloc[index +1,6])
-       #         #print('heat =', df.iloc[index +1,8])
-       #         break
-       # for index, row in df.iterrows():
-       #     #print (row[28])
-       #     if row[28] == 'Yes/No' or row[28] == 'Ja/Nej':  
-       #         insertvalue(Need_ID, 'UNIT_STOP', df.iloc[index +1,28])
-       #         insertvalue(Need_ID, 'UNIT_STOP_DUR', df.iloc[index +1,31])
-       #         #print('UNIT_STOP =', df.iloc[index +1,28])
-       #         #print('UNIT_STOP_DUR =', df.iloc[index +1,31])
-       #         break
-#       2017-08-02 1011  :: Updated to include Solution based records
+def worksheet_getAVAILRISk():
+    try:
+        df = pd.read_excel(glb_path, sheetname = 'Availability Risk')
+#        #print (df['Unnamed: 7'])
+#       # for index, row in df.iterrows():
+#       #     #print (row[6])
+#       #     if row[6] == 'Power' or row[6] == 'El':  
+#       #         insertvalue(Need_ID, 'POWER', df.iloc[index +1,6])
+#       #         insertvalue(Need_ID, 'HEAT', df.iloc[index +1,8])
+#       #         #print('power =', df.iloc[index +1,6])
+#       #         #print('heat =', df.iloc[index +1,8])
+#       #         break
+#       # for index, row in df.iterrows():
+#       #     #print (row[28])
+#       #     if row[28] == 'Yes/No' or row[28] == 'Ja/Nej':  
+#       #         insertvalue(Need_ID, 'UNIT_STOP', df.iloc[index +1,28])
+#       #         insertvalue(Need_ID, 'UNIT_STOP_DUR', df.iloc[index +1,31])
+#       #         #print('UNIT_STOP =', df.iloc[index +1,28])
+#       #         #print('UNIT_STOP_DUR =', df.iloc[index +1,31])
+#       #         break
+###      2017-08-02 1011  :: Updated to include Solution based records
+
         for index, row in df.iterrows():
-            #print (row[5])
+            #print (index, ' :: ' , row[5], ' :: ', row[6])           
             if row[5] == 'Yes/No' or row[5] == 'Ja/Nej':
                 intloop = 1
-                print (index)
-                while intloop <= offset:           
-                    #insertvalue(Soluition_ID, Need_ID, 'FOSSIL_USE', df.iloc[index +1,6])
-                    #insertvalue(Solution_ID, Need_ID, 'FOSSIL_USE_DUR_HRS', df.iloc[index +1,10])
-                    #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
-                    #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
-                    print('FOSSIL_USE =', df.iloc[index + intloop +1,6])
-                    print('FOSSIL_USE_DUR_HRS =', df.iloc[index + intloop +1,10])
-                    print('FUEL_TYPE =', df.iloc[index + intloop +1,14])
-                    print('FUEL_TYPE_VOL_M3 =', df.iloc[index + intloop +1,18])
-                    break            
-#        for index, row in df.iterrows():
-#            #print (row[5])
-#            if row[5] == 'Expected Frequency of Fine / Penalty per Year' or row[5] == 'Estimeret antal bøder pr. År':  
-#                insertvalue(Need_ID, 'FINE', df.iloc[index +2,6])
-#                insertvalue(Need_ID, 'FINE_DESC', df.iloc[index +2,10])
-#            #    insertvalue(Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
-#            #    insertvalue(Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
-#            #   print('FINE =', df.iloc[index +2,6])
-#             #  print('FINE_DESC =', df.iloc[index +2,10])
-#                #print('FOSSIL_USE_DUR_HRS =', df.iloc[index +1,10])
-#                #print('FUEL_TYPE =', df.iloc[index +1,14])
-#                #print('FUEL_TYPE_VOL_M3 =', df.iloc[index +1,18])
-#         #       break  
-#  #  except: 
-#   #     print ('WORKBOOK', ' :: ', path, ' :: FAILURE')        
+#               # print (index)
+                while intloop <= offset: 
+#                     print ('-------> ', index, index + intloop +2)
+                      insertvalue(df.iloc[index + intloop +2,1], Need_ID, 'FOSSIL_USE', df.iloc[index + intloop +2,6])
+                      insertvalue(df.iloc[index + intloop +2,1], Need_ID, 'FOSSIL_USE_DUR_HRS', df.iloc[index + intloop +2,10])
+                      insertvalue(df.iloc[index + intloop +2,1], Need_ID, 'FUEL_TYPE', df.iloc[index + intloop +2,14])
+                      insertvalue(df.iloc[index + intloop +2,1], Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index + intloop +2,18])     
+#                     print (df.iloc[index + intloop +2,1])
+#                     print('FOSSIL_USE =', df.iloc[index + intloop +2,6])
+#                     print('FOSSIL_USE_DUR_HRS =', df.iloc[index + intloop +2,10])
+#                     print('FUEL_TYPE =', df.iloc[index + intloop +2,14])
+#                     print('FUEL_TYPE_VOL_M3 =', df.iloc[index + intloop +2,18])
+                      break            
+##        for index, row in df.iterrows():
+##            #print (row[5])
+##            if row[5] == 'Expected Frequency of Fine / Penalty per Year' or row[5] == 'Estimeret antal bøder pr. År':  
+##                insertvalue(Need_ID, 'FINE', df.iloc[index +2,6])
+##                insertvalue(Need_ID, 'FINE_DESC', df.iloc[index +2,10])
+##            #    insertvalue(Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
+##            #    insertvalue(Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
+##            #   print('FINE =', df.iloc[index +2,6])
+##             #  print('FINE_DESC =', df.iloc[index +2,10])
+##                #print('FOSSIL_USE_DUR_HRS =', df.iloc[index +1,10])
+##                #print('FUEL_TYPE =', df.iloc[index +1,14])
+##                #print('FUEL_TYPE_VOL_M3 =', df.iloc[index +1,18])
+##         #       break  
+     except: 
+         print ('WORKBOOK', ' :: ', path, ' :: FAILURE')        
 
 def insertvalue(KEY, NEED, PARAM, VALUE):
    try:    
@@ -203,21 +227,10 @@ def insertvalue(KEY, NEED, PARAM, VALUE):
 
     
     
-def list_files(dir):                                                                                                  
-    r = []
-    for root, dirs, files in os.walk(dir):
-        for name in files:
-            r = (os.path.join(root, name))
-            print (name)
-            if '~$'not in name:
-            #if name == 'TEST_001.xlsm':
-                worksheet_getNEEDBASE(r)
 
 
-def main():
-    current_directory = filedialog.askdirectory()
-    print(current_directory)
-    #list_files(dir)
+
+ 
 
 if __name__ == '__main__':
     main()                
