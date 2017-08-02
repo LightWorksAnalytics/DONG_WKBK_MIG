@@ -48,8 +48,8 @@ def list_files(dir):
             global glb_path
             glb_path = (os.path.join(root, name))
             #print (name)
-            #if '~$'not in name:
-            if name == 'TEST_003_OPEN.xlsm':
+            if '~$'not in name:
+            #if name == 'TEST_003_OPEN.xlsm':
                 worksheet_getNEEDBASE()
                 #worksheet_getAVAILRISk()
                 worksheet_getSolBase()
@@ -57,26 +57,26 @@ def list_files(dir):
 def worksheet_getSolBase():
     #try:
         df = pd.read_excel(glb_path, sheetname = 'Solution Base')    
-       # print (df['Unnamed: 6'])
+        #print (df['Unnamed: 6'])
         #print (df.iloc[23,6])
-        #print (df.iloc[6,0])        
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
+        #print (df.iloc[0,6])        
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
         x=0
         i=1            
         while x<20:
             #print(i, df.iloc[34,18+x])
-            insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
-            insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
-            insertvalue(df.iloc[6,0],glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
+            insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
+            insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
+            insertvalue(df.iloc[0,6],glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
             x=x+2
             i=i+1
-        insertvalue(df.iloc[6,0], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
-        insertvalue(df.iloc[6,0]glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
     #except: 
      #  print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 
@@ -85,8 +85,8 @@ def worksheet_getNEEDBASE():
     #print(glb_path)
     try:
         df = pd.read_excel(glb_path, sheetname = 'Need Base')
-        global Need_ID
-        Need_ID = df.iloc[7,3]
+        global glb_Need_ID
+        glb_Need_ID = df.iloc[7,3]
         #print (Need_ID)
         #print (df.columns)
         #print (df['Unnamed: 3'])
