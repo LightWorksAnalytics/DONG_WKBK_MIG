@@ -215,7 +215,7 @@ def worksheet_getAVAILRISk():
 ##                #print('FUEL_TYPE =', df.iloc[index +1,14])
 ##                #print('FUEL_TYPE_VOL_M3 =', df.iloc[index +1,18])
 ##         #       break  
-     except: 
+    except: 
          print ('WORKBOOK', ' :: ', path, ' :: FAILURE')        
 
 def insertvalue(KEY, NEED, PARAM, VALUE):
