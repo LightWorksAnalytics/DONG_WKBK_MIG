@@ -2,16 +2,19 @@
 """
 Created on Wed Jul 26 12:03:25 2017
 
---> NEEDS ONLY
+
 
 @author: Alex
+@Client: DONG Energy
+@Purpose: Extract dedicated fields from the DONG Energy workbooks.
 """
 
 
 import pandas as pd
 import os
 import pyodbc
-
+from tkinter import Tk
+from tkinter import filedialog
 
 
 server = 'tcp:icsdatabaseanalytics.database.windows.net'
@@ -22,8 +25,13 @@ driver= '{SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 
-path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Workbook Sharepoint Extracts\\170714\\ASV PINQ Light bibliotek\\'
+#path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Workbook Sharepoint Extracts\\170714\\ASV PINQ Light bibliotek\\'
 #path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Test Workbooks\\'
+
+root = Tk()
+root.withdraw()
+
+
 
 def isNaN(num):
     return num != num
@@ -161,15 +169,15 @@ def worksheet_getAVAILRISk(path, offset, Need_ID, Solution_ID):
                 intloop = 1
                 print (index)
                 while intloop <= offset:           
-                #insertvalue(Soluition_ID, Need_ID, 'FOSSIL_USE', df.iloc[index +1,6])
-                #insertvalue(Solution_ID, Need_ID, 'FOSSIL_USE_DUR_HRS', df.iloc[index +1,10])
-                #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
-                #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
-                print('FOSSIL_USE =', df.iloc[index + intloop +1,6])
-                print('FOSSIL_USE_DUR_HRS =', df.iloc[index + intloop +1,10])
-                print('FUEL_TYPE =', df.iloc[index + intloop +1,14])
-                print('FUEL_TYPE_VOL_M3 =', df.iloc[index + intloop +1,18])
-                break            
+                    #insertvalue(Soluition_ID, Need_ID, 'FOSSIL_USE', df.iloc[index +1,6])
+                    #insertvalue(Solution_ID, Need_ID, 'FOSSIL_USE_DUR_HRS', df.iloc[index +1,10])
+                    #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
+                    #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
+                    print('FOSSIL_USE =', df.iloc[index + intloop +1,6])
+                    print('FOSSIL_USE_DUR_HRS =', df.iloc[index + intloop +1,10])
+                    print('FUEL_TYPE =', df.iloc[index + intloop +1,14])
+                    print('FUEL_TYPE_VOL_M3 =', df.iloc[index + intloop +1,18])
+                    break            
 #        for index, row in df.iterrows():
 #            #print (row[5])
 #            if row[5] == 'Expected Frequency of Fine / Penalty per Year' or row[5] == 'Estimeret antal bøder pr. År':  
@@ -206,4 +214,10 @@ def list_files(dir):
                 worksheet_getNEEDBASE(r)
 
 
-list_files(path)
+def main():
+    current_directory = filedialog.askdirectory()
+    print(current_directory)
+    #list_files(dir)
+
+if __name__ == '__main__':
+    main()                
