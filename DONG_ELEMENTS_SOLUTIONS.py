@@ -92,40 +92,40 @@ def worksheet_getTECHAVAIL(path, offset, Need_ID):
                     #print (df.iloc[index + intloop + 5,1], ' :: ' ,Need_ID , ' :: ' , df.iloc[index + intloop + 58,6])
                     #print (df.iloc[index + intloop + 5,1], ' :: ' ,Need_ID , ' :: ' , df.iloc[index + intloop + 70,34])
                     #print (df.iloc[index + intloop + 5,1], ' :: ' ,Need_ID , ' :: ' , df.iloc[index + intloop + 82,6])
+              
                 
-                
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMMAXPWRMAXPWR',df.iloc[index + intloop + 5,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMPWRMAXHEAT',df.iloc[index + intloop + 5,11])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMHEAT',df.iloc[index + intloop + 5,14])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMSTEAM',df.iloc[index + intloop + 5,17])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_POB_INCX',df.iloc[index + intloop + 5,34])                
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_UNITHEATLOSSDELTA',df.iloc[index + intloop + 16,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_UNITELECCONSUMDELTA',df.iloc[index + intloop + 16,14])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_COAL',df.iloc[index + intloop + 30,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_OIL',df.iloc[index + intloop + 30,9])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_NG',df.iloc[index + intloop + 30,12])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_WP',df.iloc[index + intloop + 30,15])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_WC',df.iloc[index + intloop + 30,18])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_S',df.iloc[index + intloop + 30,21])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_W',df.iloc[index + intloop + 30,24])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_OPEXDELTAPY',df.iloc[index + intloop + 30,34])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX',df.iloc[index + intloop + 30,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX_DESC',df.iloc[index + intloop + 30,9])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX_OPEXDELTAPY',df.iloc[index + intloop + 30,31])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX_INCX',df.iloc[index + intloop + 30,35])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_COAL',df.iloc[index + intloop + 58,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_OIL',df.iloc[index + intloop + 58,9])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_NG',df.iloc[index + intloop + 58,12])                
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_WP',df.iloc[index + intloop + 58,18])   
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_WC',df.iloc[index + intloop + 58,21])   
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_S',df.iloc[index + intloop + 58,24])   
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_W',df.iloc[index + intloop + 58,30])                   
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_BP',df.iloc[index + intloop + 70,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_BP_DESC',df.iloc[index + intloop + 70,9])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_BP_INCX',df.iloc[index + intloop + 70,34])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_ETC',df.iloc[index + intloop + 82,6])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_ETC_DESC',df.iloc[index + intloop + 82,9])
-                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_ETC_INCX',df.iloc[index + intloop + 82,34])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMMAXPWRMAXPWR',df.iloc[index + intloop + 5,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMPWRMAXHEAT',df.iloc[index + intloop + 5,11])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMHEAT',df.iloc[index + intloop + 5,14])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_NOMSTEAM',df.iloc[index + intloop + 5,17])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_POB_INCX',df.iloc[index + intloop + 5,34])                
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_UNITHEATLOSSDELTA',df.iloc[index + intloop + 16,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_UNITELECCONSUMDELTA',df.iloc[index + intloop + 16,14])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_COAL',df.iloc[index + intloop + 30,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_OIL',df.iloc[index + intloop + 30,9])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_NG',df.iloc[index + intloop + 30,12])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_WP',df.iloc[index + intloop + 30,15])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_WC',df.iloc[index + intloop + 30,18])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_S',df.iloc[index + intloop + 30,21])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_W',df.iloc[index + intloop + 30,24])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_SFT_OPEXDELTAPY',df.iloc[index + intloop + 30,34])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX',df.iloc[index + intloop + 30,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX_DESC',df.iloc[index + intloop + 30,9])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX_OPEXDELTAPY',df.iloc[index + intloop + 30,31])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_FLEX_INCX',df.iloc[index + intloop + 30,35])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_COAL',df.iloc[index + intloop + 58,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_OIL',df.iloc[index + intloop + 58,9])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_NG',df.iloc[index + intloop + 58,12])                
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_WP',df.iloc[index + intloop + 58,18])   
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_WC',df.iloc[index + intloop + 58,21])   
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_S',df.iloc[index + intloop + 58,24])   
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_IFC_W',df.iloc[index + intloop + 58,30])                   
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_BP',df.iloc[index + intloop + 70,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_BP_DESC',df.iloc[index + intloop + 70,9])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_BP_INCX',df.iloc[index + intloop + 70,34])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_ETC',df.iloc[index + intloop + 82,6])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_ETC_DESC',df.iloc[index + intloop + 82,9])
+#                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'OOCII_ETC_INCX',df.iloc[index + intloop + 82,34])
 ##                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'SOL_RAW_STATUS',Status)
 ##                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'SOL_RAW_STATUS',Status)
 ##                    insertvalue(Need_ID, df.iloc[index + intloop + 5,1],'SOL_RAW_STATUS',Status)
@@ -135,7 +135,7 @@ def worksheet_getTECHAVAIL(path, offset, Need_ID):
                     #print ( df.iloc[index + intloop + 87,6])
                     intloop = intloop + 1
         
-def worksheet_getAVAILRISk(path, offset, Need_ID):
+def worksheet_getAVAILRISk(path, offset, Need_ID, Solution_ID):
         df = pd.read_excel(path, sheetname = 'Availability Risk')
         #print (df['Unnamed: 7'])
        # for index, row in df.iterrows():
@@ -154,18 +154,22 @@ def worksheet_getAVAILRISk(path, offset, Need_ID):
        #         #print('UNIT_STOP =', df.iloc[index +1,28])
        #         #print('UNIT_STOP_DUR =', df.iloc[index +1,31])
        #         break
-       # for index, row in df.iterrows():
-       #     #print (row[5])
-       #     if row[5] == 'Yes/No' or row[5] == 'Ja/Nej':  
-       #         insertvalue(Need_ID, 'FOSSIL_USE', df.iloc[index +1,6])
-       #         insertvalue(Need_ID, 'FOSSIL_USE_DUR_HRS', df.iloc[index +1,10])
-       #         insertvalue(Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
-       #         insertvalue(Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
-                #print('FOSSIL_USE =', df.iloc[index +1,6])
-                #print('FOSSIL_USE_DUR_HRS =', df.iloc[index +1,10])
-                #print('FUEL_TYPE =', df.iloc[index +1,14])
-                #print('FUEL_TYPE_VOL_M3 =', df.iloc[index +1,18])
-        #        break            
+#       2017-08-02 1011  :: Updated to include Solution based records
+        for index, row in df.iterrows():
+            #print (row[5])
+            if row[5] == 'Yes/No' or row[5] == 'Ja/Nej':
+                intloop = 1
+                print (index)
+                while intloop <= offset:           
+                #insertvalue(Soluition_ID, Need_ID, 'FOSSIL_USE', df.iloc[index +1,6])
+                #insertvalue(Solution_ID, Need_ID, 'FOSSIL_USE_DUR_HRS', df.iloc[index +1,10])
+                #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
+                #insertvalue(Solution_ID, Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
+                print('FOSSIL_USE =', df.iloc[index + intloop +1,6])
+                print('FOSSIL_USE_DUR_HRS =', df.iloc[index + intloop +1,10])
+                print('FUEL_TYPE =', df.iloc[index + intloop +1,14])
+                print('FUEL_TYPE_VOL_M3 =', df.iloc[index + intloop +1,18])
+                break            
 #        for index, row in df.iterrows():
 #            #print (row[5])
 #            if row[5] == 'Expected Frequency of Fine / Penalty per Year' or row[5] == 'Estimeret antal bøder pr. År':  
@@ -183,14 +187,12 @@ def worksheet_getAVAILRISk(path, offset, Need_ID):
 #   #     print ('WORKBOOK', ' :: ', path, ' :: FAILURE')        
 
 def insertvalue(KEY, NEED, PARAM, VALUE):
-#    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES (" + str(KEY) + "," + PARAM +"," + str(VALUE) + ")")
-   
    try:    
        cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT_INTERVEN (SOLUTION_ID, NEED_ID, PARAM, VALUE) VALUES ('" + str(KEY) +"','" + str(NEED) +  "','" + PARAM + "','" + str(VALUE) + "')")
        cursor.commit()
    except:
         print ("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT_INTERVEN (SOLUTION_ID, NEED_ID, PARAM, VALUE) VALUES ('" + str(KEY) +"','" + str(NEED) +  "','" + PARAM + "','" + str(VALUE) + "');")
-  #cursor.commit()
+
     
     
 def list_files(dir):                                                                                                  
