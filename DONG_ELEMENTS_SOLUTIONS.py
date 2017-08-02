@@ -31,17 +31,22 @@ cursor = cnxn.cursor()
 root = Tk()
 root.withdraw()
 
+root.title = "ICS DONG WKBK EXTRACT"
+root.geometry("330x470")
+root.mainloop()
+
 glb_Need_ID = None
 glb_offset = None
 glb_path = None
 
 def main():
     current_directory = filedialog.askdirectory()
-    list_files(current_directory)
-    
+    #list_files(current_directory)
+
     
 def list_files(dir):                                                                                                  
     #r = []
+    file_count = len(files)
     for root, dirs, files in os.walk(dir):
         for name in files:
             global glb_path

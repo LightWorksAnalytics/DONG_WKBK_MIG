@@ -116,19 +116,19 @@ del cols[0]
 #        for index, row in df4.iterrows():
 #            #print (row[0],row[1],row[2])
 #            insertvalue(row[0], row[1],row[2],row[3])  
+#for elements in cols:
+#    if 'Env_Post' in elements:
+#        print (elements)
+#        df2 = pd.melt(df,id_vars=['Solution ID','Need ID'], value_vars=[elements])
+#        df3=df2
+#        #df4 = df3[np.isfinite(df3['Need ID'])]
+#        df4 = df3.drop_duplicates(subset=['Solution ID'], keep='first', inplace = False)
+#        #print (df4)
+#        for index, row in df4.iterrows():
+#            #print (row[0],row[1],row[2])
+#            insertvalue(row[0], row[1],row[2],row[3])  
 for elements in cols:
-    if 'Env_Post' in elements:
-        print (elements)
-        df2 = pd.melt(df,id_vars=['Solution ID','Need ID'], value_vars=[elements])
-        df3=df2
-        #df4 = df3[np.isfinite(df3['Need ID'])]
-        df4 = df3.drop_duplicates(subset=['Solution ID'], keep='first', inplace = False)
-        #print (df4)
-        for index, row in df4.iterrows():
-            #print (row[0],row[1],row[2])
-            insertvalue(row[0], row[1],row[2],row[3])  
-for elements in cols:
-    if 'Rep_post' in elements:
+    if 'Rep_Post' in elements:
         print (elements)
         df2 = pd.melt(df,id_vars=['Solution ID','Need ID'], value_vars=[elements])
         df3=df2
