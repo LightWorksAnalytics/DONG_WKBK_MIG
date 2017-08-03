@@ -46,31 +46,31 @@ def list_files(dir):
                 worksheet_getNEEDBASE()
                 worksheet_getSolBase()
                 
-def worksheet_getSolBase():
-    #try:
-        df = pd.read_excel(glb_path, sheetname = 'Solution Base')    
-        #print (df['Unnamed: 8'])
-        #print (df.iloc[23,6])
-        print (df.iloc[34,8])        
-        insertvalue(glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
-        insertvalue(glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
-        insertvalue(glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
-        insertvalue(glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
-        insertvalue(glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
-        insertvalue(glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
-        x=0
-        i=1            
-        while x<20:
-            #print(i, df.iloc[34,18+x])
-            insertvalue(glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
-            insertvalue(glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
-            insertvalue(glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
-            x=x+2
-            i=i+1
-        insertvalue(glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
-        insertvalue(glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
-    #except: 
-     #  print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
+#def worksheet_getSolBase():
+#    #try:
+#        df = pd.read_excel(glb_path, sheetname = 'Solution Base')    
+#        #print (df['Unnamed: 8'])
+#        #print (df.iloc[23,6])
+#        print (df.iloc[34,8])        
+#        insertvalue(glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
+#        insertvalue(glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
+#        insertvalue(glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
+#        insertvalue(glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
+#        insertvalue(glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
+#        insertvalue(glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
+#        x=0
+#        i=1            
+#        while x<20:
+#            #print(i, df.iloc[34,18+x])
+#            insertvalue(glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
+#            insertvalue(glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
+#            insertvalue(glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
+#            x=x+2
+#            i=i+1
+#        insertvalue(glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
+#        insertvalue(glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
+#    #except: 
+#     #  print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 
 
 def worksheet_getNEEDBASE():

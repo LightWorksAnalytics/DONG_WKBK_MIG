@@ -58,25 +58,95 @@ def worksheet_getSolBase():
     #try:
         df = pd.read_excel(glb_path, sheetname = 'Solution Base')    
         #print (df['Unnamed: 6'])
-        #print (df.iloc[23,6])
-        #print (df.iloc[0,6])        
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
+        #print (df.iloc[91,9])  
+        #for index, row in df.iterrows():
+        #    print (index, row[12])
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
+        
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BM_IC',df.iloc[73,6]) 
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BM_EC',df.iloc[74,6])        
+        
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16]) 
+ 
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR1_1',df.iloc[81,10])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR1_2',df.iloc[81,12])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR1_3',df.iloc[81,14])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR1_4',df.iloc[81,16])  
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR2_1',df.iloc[81,18])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR2_2',df.iloc[81,20])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR2_3',df.iloc[81,22])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR2_4',df.iloc[81,24])   
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR3_1',df.iloc[81,26])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR3_2',df.iloc[81,28])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR3_3',df.iloc[81,30])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_IC_YR3_4',df.iloc[81,32])    
+
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR1_1',df.iloc[82,10])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR1_2',df.iloc[82,12])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR1_3',df.iloc[82,14])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR1_4',df.iloc[82,16])  
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR2_1',df.iloc[82,18])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR2_2',df.iloc[82,20])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR2_3',df.iloc[82,22])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR2_4',df.iloc[82,24])   
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR3_1',df.iloc[82,26])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR3_2',df.iloc[82,28])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR3_3',df.iloc[82,30])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_EC_YR3_4',df.iloc[82,32])    
+
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR1_1',df.iloc[83,10])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR1_2',df.iloc[83,12])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR1_3',df.iloc[83,14])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR1_4',df.iloc[83,16])  
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR2_1',df.iloc[83,18])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR2_2',df.iloc[83,20])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR2_3',df.iloc[83,22])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR2_4',df.iloc[83,24])   
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR3_1',df.iloc[83,26])
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR3_2',df.iloc[83,28])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR3_3',df.iloc[83,30])  
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_BE_MAT_YR3_4',df.iloc[83,32]) 
+
+
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_DII_ANN',df.iloc[91,9]) 
+        insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_IOC_ANN',df.iloc[94,9]) 
+
+
+
+
+             
+        
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
         x=0
         i=1            
         while x<20:
-            #print(i, df.iloc[34,18+x])
-            insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
-            insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
-            insertvalue(df.iloc[0,6],glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
+           # print(i, df.iloc[91,18+x])
+            #print(i, df.iloc[1,6+x])
+           # insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
+            #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_IOC_YR' + str(i) ,df.iloc[37,18+x])
+          #  insertvalue(df.iloc[0,6],glb_Need_ID ,'IDEA_OD_YR' + str(i) ,df.iloc[41,6+x])  
+          #  insertvalue(df.iloc[0,6],glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[50,6+x])  
+          
+            insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_DII_YR' + str(i) ,df.iloc[91,18+x])
+            insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_IOC_YR' + str(i) ,df.iloc[94,18+x])          
+            insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_OD_YR' + str(i) ,df.iloc[101,6+x])            
+            insertvalue(df.iloc[0,6], glb_Need_ID ,'ANAL_PEY_YR' + str(i) ,df.iloc[1008,6+x])                
+          
             x=x+2
             i=i+1
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
-        insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
+        #insertvalue(df.iloc[0,6], glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
     #except: 
      #  print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 
@@ -115,7 +185,7 @@ def worksheet_getNEEDBASE():
 #        worksheet_getTECHAVAIL(path, offset, Need_ID)
  
     except: 
-       print ('WORKBOOK', ' :: ', path, ' :: FAILURE')
+       print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 
 
         #print (df.head(20))
@@ -243,7 +313,7 @@ def worksheet_getAVAILRISk():
 ##                #print('FUEL_TYPE_VOL_M3 =', df.iloc[index +1,18])
 ##         #       break  
     except: 
-         print ('WORKBOOK', ' :: ', path, ' :: FAILURE')        
+         print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')        
 
 def insertvalue(KEY, NEED, PARAM, VALUE):
    try:    
