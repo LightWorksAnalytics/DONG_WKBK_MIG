@@ -29,8 +29,8 @@ glb_offset = None
 glb_path = None
 
 def main():
-    current_directory = filedialog.askdirectory()
     database_clean()
+    current_directory = filedialog.askdirectory(title='WORKBOOK FOLDER')
     list_files(current_directory)
 
     
@@ -45,34 +45,9 @@ def list_files(dir):
             if '~$'not in name:
             #if name == 'TEST_004_OPEN.xlsm':
                 worksheet_getNEEDBASE()
-                #worksheet_getAVAILRISk()
+                worksheet_getAVAILRISk()
                 #worksheet_getSolBase()
                 
-#def worksheet_getSolBase():
-#    #try:
-#        df = pd.read_excel(glb_path, sheetname = 'Solution Base')    
-#        #print (df['Unnamed: 8'])
-#        #print (df.iloc[23,6])
-#        print (df.iloc[34,8])        
-#        insertvalue(glb_Need_ID ,'IDEA_BM_IC',df.iloc[23,6])
-#        insertvalue(glb_Need_ID ,'IDEA_BM_EC',df.iloc[24,6])
-#        insertvalue(glb_Need_ID ,'IDEA_BE_IC',df.iloc[23,16])    
-#        insertvalue(glb_Need_ID ,'IDEA_DE_EC',df.iloc[24,16])    
-#        insertvalue(glb_Need_ID ,'IDEA_BE_MAT',df.iloc[25,16])
-#        insertvalue(glb_Need_ID ,'IDEA_DII_ANN',df.iloc[34,8])
-#        x=0
-#        i=1            
-#        while x<20:
-#            #print(i, df.iloc[34,18+x])
-#            insertvalue(glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[34,18+x])
-#            insertvalue(glb_Need_ID ,'IDEA_DII_YR' + str(i) ,df.iloc[37,18+x])
-#            insertvalue(glb_Need_ID ,'IDEA_PEY_YR' + str(i) ,df.iloc[41,6+x])             
-#            x=x+2
-#            i=i+1
-#        insertvalue(glb_Need_ID ,'IDEA_BE_MAT',df.iloc[34,8])
-#        insertvalue(glb_Need_ID ,'IDEA_IOC_ANN',df.iloc[37,8])  
-#    #except: 
-#     #  print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 
 
 def worksheet_getNEEDBASE():
@@ -81,6 +56,9 @@ def worksheet_getNEEDBASE():
         df = pd.read_excel(glb_path, sheetname = 'Need Base')
         global glb_Need_ID
         glb_Need_ID = df.iloc[7,3]
+        global glb_Need_Title
+        glb_Need_Title = df.iloc[14,3]
+        
 #        print('CRITICALASSET',df.iloc[11,23])
 #        print('NEED TITLE',df.iloc[14,3])
 #        print('PM',df.iloc[17,3])
@@ -89,8 +67,8 @@ def worksheet_getNEEDBASE():
 #        print('MUSTDOBY',df.iloc[31,9])
 #        print('NNR',df.iloc[39,42])  
         insertvalue(glb_Need_ID, 'PLANT', df.iloc[11,4])
-        insertvalue(glb_Need_ID, 'UNIT', df.iloc[11,4])        
-        insertvalue(glb_Need_ID, 'ASSETLOC', df.iloc[11,4])
+        insertvalue(glb_Need_ID, 'UNIT', df.iloc[11,9])        
+        insertvalue(glb_Need_ID, 'ASSETLOC', df.iloc[11,15])
         insertvalue(glb_Need_ID, 'NEED_TITLE', df.iloc[14,3])
         insertvalue(glb_Need_ID, 'PROJECTMANAGER', df.iloc[17,3])
         insertvalue(glb_Need_ID, 'NEEDDESCRIPTION', df.iloc[20,3])
@@ -106,7 +84,7 @@ def worksheet_getNEEDBASE():
         insertvalue(glb_Need_ID, 'LEGAL_REASON', df.iloc[37,16])
         insertvalue(glb_Need_ID, 'NEEDNOTREQUIRED', df.iloc[39,42])
         insertvalue(glb_Need_ID, 'NNR_REASON', df.iloc[39,16])
-## 
+### 
     except: 
        print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 #
@@ -123,9 +101,9 @@ def worksheet_getAVAILRISk():
                 break
         for index, row in df.iterrows():
             #print (row[28])
-            if row[28] == 'Yes/No' or row[28] == 'Ja/Nej':  
-                insertvalue(glb_Need_ID, 'UNIT_STOP', df.iloc[index +1,28])
-                insertvalue(glb_Need_ID, 'UNIT_STOP_DUR', df.iloc[index +1,31])
+            if row[20] == 'Does Full Repair Require Unit to be Stopped ?' or row[20] == 'Kræves der udetid for at opnå fuld genoprettelse af blokkens kapacitet?':  
+                insertvalue(glb_Need_ID, 'UNIT_STOP', df.iloc[index +2,28])
+                insertvalue(glb_Need_ID, 'UNIT_STOP_DUR', df.iloc[index +2,31])
 #                print('UNIT_STOP =', df.iloc[index +1,28])
 #                print('UNIT_STOP_DUR =', df.iloc[index +1,31])
                 break
@@ -144,21 +122,30 @@ def worksheet_getAVAILRISk():
         for index, row in df.iterrows():
             #print (row[5])
             if row[5] == 'Expected Frequency of Fine / Penalty per Year' or row[5] == 'Estimeret antal bøder pr. År':  
-                insertvalue(glb_Need_ID, 'FINE', df.iloc[index +2,6])
+                insertvalue(glb_Need_ID, 'FINE', df.iloc[index +2,34])
                 insertvalue(glb_Need_ID, 'FINE_DESC', df.iloc[index +2,10])
-                insertvalue(glb_Need_ID, 'FUEL_TYPE', df.iloc[index +1,14])
-                insertvalue(glb_Need_ID, 'FUEL_TYPE_VOL_M3', df.iloc[index +1,18])            
+          
 #               print('FINE =', df.iloc[index +2,6])
 #               print('FINE_DESC =', df.iloc[index +2,10])
 #               print('FINE_P_FINE =', df.iloc[index +2,34])
                 break  
-    
-
+        
+        for index, row in df.iterrows():
+            if row[2] == 'Full Restoration' or row[2] == 'Fuld genoprettelse af blokkens kapacitet':
+                x=0
+                year=1
+                while x<28:
+                    insertvalue(glb_Need_ID, 'TimeFullRestoration_Yr' + str(year), df.iloc[index +3, 6+x])
+                    x=x+2
+                    year=year+1
+ 
+         
+                    
 def insertvalue( NEED, PARAM, VALUE):
 #    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES (" + str(KEY) + "," + PARAM +"," + str(VALUE) + ")")
    
   # try:    
-       cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT ( ID, PARAM, VALUE) VALUES ('" + str(NEED) +  "','" + PARAM + "','" + str(VALUE) + "')")
+       cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT ( ID, NEED_TITLE, PARAM, VALUE) VALUES ('" + str(NEED) +  "','" + str(glb_Need_Title) + "','" + PARAM + "','" + str(VALUE) + "')")
        cursor.commit()
    #except:
     #    print ("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT ( NEED_ID, PARAM, VALUE) VALUES ('" + str(NEED) +  "','" + PARAM + "','" + str(VALUE) + "');")

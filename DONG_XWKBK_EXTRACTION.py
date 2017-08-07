@@ -42,38 +42,138 @@ root = Tk()
 root.withdraw()
 
 def main():
-    path = filedialog.askopenfilename()
-    database_clean()    
+    path = filedialog.askopenfilename(title='CROSS WORKBOOK OPEN')
+    #database_clean()    
+    global df
+
     df = pd.read_excel(path, sheetname="AllData")
-    sql_insert = "INSERT AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES (%s,%s,%s)" 
+    del df['Name']
+ 
+    global cols
+    cols = list(df.columns)
+    del cols[0]  
+    Risk_Pre()
+    TimeFull()
+    Partial()
+    FullCosts()
+    HS()
+    ENV()
+    Rep()
 
 
-def insertvalue(KEY, PARAM, VALUE):
+def insertvalue(KEY,NTitle,  PARAM, VALUE):
 #    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES (" + str(KEY) + "," + PARAM +"," + str(VALUE) + ")")
    
     try:    
-        cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES ('" + str(KEY) + "','" + PARAM +"','" + str(VALUE) + "')")
-        cursor.commit()
+       cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT ( ID, NEED_TITLE, PARAM, VALUE) VALUES ('" + str(KEY) +  "','" + str(NTitle) + "','" + PARAM + "','" + str(VALUE) + "')")
+       cursor.commit()
     except:
-         print ("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES ('" + str(KEY) + "','" + PARAM +"','" + str(VALUE) + "');")
+       print ("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES ('" + str(KEY) + "','" + PARAM +"','" + str(VALUE) + "');")
   #cursor.commit()
     
 def Risk_Pre():
-    del df['Name']
-    cols = list(df.columns)
-    del cols[0]
+
     for elements in cols:
         if 'Risk_Pre' in elements:
-            print (elements)
-            df2 = pd.melt(df,id_vars=['Need ID'], value_vars=[elements])
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]
             df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
             #print (df4)
             for index, row in df4.iterrows():
                 #print (row[0],row[1],row[2])
-                insertvalue(row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])
+
+def HS():
+
+    for elements in cols:
+        if 'H&S_Pre' in elements:
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
+            df3=df2
+            #df4 = df3[np.isfinite(df3['Need ID'])]
+            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
+            #print (df4)
+            for index, row in df4.iterrows():
+                #print (row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])
+
+def ENV():
+
+    for elements in cols:
+        if 'Env_Pre' in elements:
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
+            df3=df2
+            #df4 = df3[np.isfinite(df3['Need ID'])]
+            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
+            #print (df4)
+            for index, row in df4.iterrows():
+                #print (row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])  
+
+def Rep():
+
+    for elements in cols:
+        if 'Rep_Pre' in elements:
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
+            df3=df2
+            #df4 = df3[np.isfinite(df3['Need ID'])]
+            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
+            #print (df4)
+            for index, row in df4.iterrows():
+                #print (row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])
+
+            
+
+def TimeFull():
 
 
+
+    for elements in cols:
+        if 'TimeFullRestoration' in elements:
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
+            df3=df2
+            #df4 = df3[np.isfinite(df3['Need ID'])]
+            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
+            #print (df4)
+            for index, row in df4.iterrows():
+                #print (row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])
+
+def Partial():
+
+
+    for elements in cols:
+        if 'AR_PartialRestorationCosts' in elements:
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
+            df3=df2
+            #df4 = df3[np.isfinite(df3['Need ID'])]
+            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
+            #print (df4)
+            for index, row in df4.iterrows():
+                #print (row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])
+                
+def FullCosts():
+
+
+    for elements in cols:
+        if 'AR_FullRestorationCosts' in elements:
+            #print (elements)
+            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
+            df3=df2
+            #df4 = df3[np.isfinite(df3['Need ID'])]
+            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
+            #print (df4)
+            for index, row in df4.iterrows():
+                #print (row[0],row[1],row[2])
+                insertvalue(row[0],row[1],row[2], row[3])
+                
 if __name__ == '__main__':
     main()                
