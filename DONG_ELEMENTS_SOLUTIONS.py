@@ -48,8 +48,8 @@ def list_files(dir):
             global glb_path
             glb_path = (os.path.join(root, name))
             print (name)
-            #if '~$'not in name:
-            if name == 'TEST_004_OPEN.xlsm':
+            if '~$'not in name:
+            #if name == 'TEST_004_OPEN.xlsm':
                 worksheet_getNEEDBASE()
                 #worksheet_getAVAILRISk()
                 #worksheet_getSolBase()
@@ -57,14 +57,14 @@ def list_files(dir):
                 
 def worksheet_getSolEval():
           df = pd.read_excel(glb_path, sheetname = 'Solution Evaluation')
-          print (df.iloc[45,16])
-#          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_IC',df.iloc[45,6])
-#          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_EC',df.iloc[46,6])
-#          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_MC',df.iloc[47,6])
-#          
-#          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_IC_SAP',df.iloc[45,16])
-#          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_EC_SAP',df.iloc[46,16])
-#          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_MC_SAP',df.iloc[47,16])
+          #print (df.iloc[45,16])
+          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_IC',df.iloc[45,6])
+          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_EC',df.iloc[46,6])
+          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_MC',df.iloc[47,6])
+          
+          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_IC_SAP',df.iloc[45,16])
+          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_EC_SAP',df.iloc[46,16])
+          insertvalue(df.iloc[0,6], glb_Need_ID ,'EXEC_PC_MC_SAP',df.iloc[47,16])
                 
            
 def worksheet_getSolBase():
