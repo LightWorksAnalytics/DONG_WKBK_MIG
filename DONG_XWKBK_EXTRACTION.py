@@ -53,7 +53,6 @@ def main():
     cols = list(df.columns)
     del cols[0]  
     Risk_Pre()
-    TimeFull()
     Partial()
     FullCosts()
     HS()
@@ -127,23 +126,8 @@ def Rep():
                 #print (row[0],row[1],row[2])
                 insertvalue(row[0],row[1],row[2], row[3])
 
-            
+          
 
-def TimeFull():
-
-
-
-    for elements in cols:
-        if 'TimeFullRestoration' in elements:
-            #print (elements)
-            df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
-            df3=df2
-            #df4 = df3[np.isfinite(df3['Need ID'])]
-            df4 = df3.drop_duplicates(subset=None, keep='first', inplace = False)
-            #print (df4)
-            for index, row in df4.iterrows():
-                #print (row[0],row[1],row[2])
-                insertvalue(row[0],row[1],row[2], row[3])
 
 def Partial():
 
