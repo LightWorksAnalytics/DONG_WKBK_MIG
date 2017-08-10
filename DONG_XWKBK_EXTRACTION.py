@@ -74,7 +74,7 @@ def Risk_Pre():
 
     for elements in cols:
         if 'Risk_Pre' in elements:
-            #print (elements)
+            print (elements)
             df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]
@@ -88,7 +88,7 @@ def HS():
 
     for elements in cols:
         if 'H&S_Pre' in elements:
-            #print (elements)
+            print (elements)
             df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]
@@ -102,7 +102,7 @@ def ENV():
 
     for elements in cols:
         if 'Env_Pre' in elements:
-            #print (elements)
+            print (elements)
             df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]
@@ -116,7 +116,7 @@ def Rep():
 
     for elements in cols:
         if 'Rep_Pre' in elements:
-            #print (elements)
+            print (elements)
             df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]
@@ -134,7 +134,7 @@ def Partial():
 
     for elements in cols:
         if 'AR_PartialRestorationCosts' in elements:
-            #print (elements)
+            print (elements)
             df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]
@@ -149,7 +149,7 @@ def FullCosts():
 
     for elements in cols:
         if 'AR_FullRestorationCosts' in elements:
-            #print (elements)
+            print (elements)
             df2 = pd.melt(df,id_vars=['Need ID', 'Need Title'], value_vars=[elements])
             df3=df2
             #df4 = df3[np.isfinite(df3['Need ID'])]

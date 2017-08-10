@@ -89,6 +89,7 @@ def worksheet_getNEEDBASE():
        print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
 #
 def worksheet_getAVAILRISk():
+    try:
         df = pd.read_excel(glb_path, sheetname = 'Availability Risk')
         #print (df['Unnamed: 7'])
         for index, row in df.iterrows():
@@ -138,8 +139,8 @@ def worksheet_getAVAILRISk():
                     insertvalue(glb_Need_ID, 'TimeFullRestoration_Yr' + str(year), df.iloc[index +3, 6+x])
                     x=x+2
                     year=year+1
- 
-         
+    except: 
+       print ('WORKBOOK', ' :: ', glb_path, ' :: FAILURE')
                     
 def insertvalue( NEED, PARAM, VALUE):
 #    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES (" + str(KEY) + "," + PARAM +"," + str(VALUE) + ")")
