@@ -18,7 +18,7 @@ driver= '{SQL Server}'
 cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 
-path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Workbook Sharepoint Extracts\\170714\\ASV PINQ Light bibliotek\\'
+path = 'O:\\Clients\\DONG\\DONG 02 - Asset Risk and Optimisation Suite\\02 Data\\01 Input\\01 Client\\Workbook Sharepoint Extracts\\170714\\'
 
 
 def worksheet_getNEEDBASE(path, name):
@@ -26,17 +26,18 @@ def worksheet_getNEEDBASE(path, name):
     try:
         df = pd.read_excel(path, sheetname = 'Need Base')
         Need_ID = df.iloc[7,3]
-        insertvalue(Need_ID, path, name)
+        glb_Need_Title = df.iloc[14,3]
+        insertvalue(Need_ID, path, name, glb_Need_Title)
 
     except: 
         print ('WORKBOOK', ' :: ', path, ' :: FAILURE')
 #
-def insertvalue(KEY, path, Name):
+def insertvalue(KEY, path, Name, title):
 #    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_EXTRACT (ID, PARAM, VALUE) VALUES (" + str(KEY) + "," + PARAM +"," + str(VALUE) + ")")
    
    try: 
    #     print("UPLOADING")
-    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_DETAILS (ID, PATH, NAME) VALUES ('" + str(KEY) + "','" + str(path) +"','" + str(Name) + "')")
+    cursor.execute("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_DETAILS (ID, PATH, NAME, NEED_TITLE) VALUES ('" + str(KEY) + "','" + str(path) +"','" + str(Name) + "','" + str(title).replace("'"," ") + "')")
     cursor.commit()
    except:
     print ("INSERT INTO AROS_WKBK_CONVERSION.dbo.WORKBOOK_DETAILS (ID, PATH, NAME) VALUES ('" + str(KEY) + "','" + str(path) +"','" + str(NAME) + "')")
